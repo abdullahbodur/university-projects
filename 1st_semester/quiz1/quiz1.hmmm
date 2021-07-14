@@ -1,0 +1,13 @@
+0 read r1 # r1 = FallingTime
+1 read r2 # r2 = initialVelocity
+2 read r3 # r3 = initialPosition
+3 setn r4 5
+# (10*r1*r1)/2 + (r1*r2) + r3 => This is our function for final position #
+# I took r1 from first and second brackets So => r1[(-10/2)*r1+r2] + r3 #
+# Last seen  => (r2 - 5r1)*r1 + r3 => This is simpler for us #
+4 mul r4 r1 r4 # we get -5r1
+5 sub r2 r2 r4 # we get r2-5r1
+6 mul r2 r2 r1 # we get r1*(r2-5r1)
+7 add r2 r2 r3 # we get r1*(r2-5r1) + r3
+8 write r2
+9 halt
